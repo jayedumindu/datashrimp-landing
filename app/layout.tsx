@@ -9,9 +9,8 @@ const geist = Geist({ subsets: ["latin"], variable: "--font-geist" })
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" })
 
 export const metadata: Metadata = {
-  title: "v0 App",
-  description: "Created with v0",
-  generator: "v0.app",
+  title: "Datashrimp - We Turn Ideas Into Real, Usable Tech",
+  description: "We help brands turn ideas into real, usable tech. Less corporate, more collaboration. We build, guide, and grow.",
 }
 
 export default function RootLayout({
@@ -21,6 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link href="https://api.fontshare.com/v2/css?f[]=clash-grotesk@200,300,400,500,600,700&display=swap" rel="stylesheet" />
+      </head>
       <body className={`${geist.variable} ${geistMono.variable} font-sans antialiased`}>
         <LenisProvider>{children}</LenisProvider>
         <Analytics />

@@ -1,66 +1,95 @@
 "use client"
 
-import Image from "next/image"
+import { useState, useEffect } from "react"
 import Link from "next/link"
-import { useEffect, useState } from "react"
-import { ResourcesDropdown } from "./resources-dropdown"
-import { ToolsDropdown } from "./tools-dropdown"
-import { MobileMenu } from "./mobile-menu"
+import { Menu, X } from "lucide-react"
+import { Button } from "@/components/ui/button"
+
+const navLinks = [
+  { name: "How It Works", href: "#how-it-works" },
+  { name: "Case Studies", href: "#products" },
+  { name: "Benefits", href: "#benefits" },
+  { name: "Services", href: "#services" },
+  { name: "Pricing", href: "#pricing" },
+  { name: "FAQ", href: "#faq" },
+  { name: "Contact", href: "#contact" },
+]
 
 export function Navbar() {
-  const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollY, setLastScrollY] = useState(0)
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY
-
-      // Show navbar when scrolling up, hide when scrolling down
-      if (currentScrollY < lastScrollY || currentScrollY < 10) {
-        setIsVisible(true)
-      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setIsVisible(false)
-      }
-
-      setLastScrollY(currentScrollY)
+      setIsScrolled(window.scrollY > 20)
     }
-
-    window.addEventListener("scroll", handleScroll, { passive: true })
+    window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [lastScrollY])
+  }, [])
 
   return (
     <nav
-      className={`fixed left-1/2 -translate-x-1/2 z-50 px-6 w-full max-w-7xl transition-all duration-700 ease-in-out ${
-        isVisible ? "top-8 opacity-100" : "-top-24 opacity-0"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10 py-4" : "bg-transparent py-6"
       }`}
     >
-      <div className="bg-black/50 backdrop-blur-[120px] rounded-full px-8 py-3 flex items-center gap-8 shadow-lg border border-white/10 w-full">
-        {/* Logo */}
-        <div className="flex items-center">
-          <Image src="/webrenew-brandmark.png" alt="webrenew" width={150} height={32} className="h-8 w-auto" />
+      <div className="container px-6 mx-auto flex items-center justify-between">
+        <Link href="/" className="text-2xl font-bold text-white tracking-tighter">
+          Datashrimp<span className="text-primary">.</span>
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-sm font-medium text-zinc-300 hover:text-white transition-colors"
+            >
+              {link.name}
+            </Link>
+          ))}
         </div>
 
-        {/* Desktop Menu Links */}
-        <div className="hidden md:flex items-center justify-end gap-4 flex-1 pr-4">
-          {/* Dropdown Container */}
-          <div className="flex items-center justify-between rounded-full border border-zinc-700">
-            <ResourcesDropdown />
-            <ToolsDropdown />
-          </div>
-          <Link
-            href="/contact"
-            className="px-[18px] py-[10px] rounded-full border border-[#5100fd] bg-[#5100fd]/50 text-white font-medium hover:scale-105 transition-transform duration-500"
-          >
-            Contact
-          </Link>
+        <div className="hidden lg:block">
+          <Button asChild className="rounded-full bg-white text-black hover:bg-zinc-200">
+            <a 
+              href={process.env.NEXT_PUBLIC_CAL_LINK} 
+              target="_blank" 
+              rel="noopener noreferrer"
+            >
+              Book a Call
+            </a>
+          </Button>
         </div>
 
-        {/* Mobile Menu */}
-        <div className="flex md:hidden items-center justify-end flex-1 pr-4">
-          <MobileMenu />
-        </div>
+        {/* Mobile Menu Toggle */}
+        <button
+          className="lg:hidden text-white"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <X /> : <Menu />}
+        </button>
       </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="absolute top-full left-0 right-0 bg-black border-b border-zinc-800 p-6 lg:hidden flex flex-col gap-4 shadow-2xl">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-lg font-medium text-zinc-300 hover:text-white"
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
+          <Button className="w-full rounded-full bg-white text-black hover:bg-zinc-200 mt-4">
+            Book a Call
+          </Button>
+        </div>
+      )}
     </nav>
   )
 }
