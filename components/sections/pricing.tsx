@@ -26,7 +26,7 @@ export function PricingSection() {
         </div>
 
         <div className="max-w-4xl mx-auto">
-          <div className="relative flex flex-col md:flex-row p-8 md:p-12 rounded-3xl border bg-zinc-900/80 border-primary shadow-[0_0_30px_rgba(1,95,232,0.15)] transition-all duration-300">
+          <div className="relative flex flex-col md:flex-row p-8 md:p-12 rounded-3xl border bg-zinc-900/50 border-primary shadow-[0_0_30px_rgba(1,95,232,0.15)] transition-all duration-300">
             <div className="flex-1 mb-8 md:mb-0 md:mr-12">
               <h3 className="text-2xl font-medium text-white mb-4">Get Started</h3>
               <p className="text-zinc-400 text-lg leading-relaxed mb-8">

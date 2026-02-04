@@ -38,8 +38,44 @@ export function ServicesSection() {
             </div>
           </div>
           
-          <div className="md:w-1/2 relative">
+          <div className="md:w-1/2 relative hidden md:block">
              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-purple-500/20 blur-[80px] rounded-full pointer-events-none" />
+             <div className="relative bg-zinc-900 border border-zinc-800 rounded-3xl p-6 rotate-3 hover:rotate-0 transition-transform duration-500">
+                <div className="flex gap-2 mb-4">
+                  <div className="w-3 h-3 rounded-full bg-red-500/20 border border-red-500/50" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/20 border border-yellow-500/50" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/20 border border-green-500/50" />
+                </div>
+                <div className="font-mono text-sm space-y-2">
+                  <div className="flex">
+                    <span className="text-purple-400 mr-2">const</span>
+                    <span className="text-blue-400 mr-2">buildFuture</span>
+                    <span className="text-zinc-400">=</span>
+                    <span className="text-zinc-400">()</span>
+                    <span className="text-zinc-400 ml-2">=&gt;</span>
+                    <span className="text-zinc-400 ml-2">{`{`}</span>
+                  </div>
+                  <div className="pl-4">
+                    <span className="text-purple-400 mr-2">return</span>
+                    <span className="text-green-400">"Innovation"</span>
+                  </div>
+                  <div className="text-zinc-400">{`}`}</div>
+                  <div className="h-4" />
+                  <div className="flex">
+                    <span className="text-purple-400 mr-2">async</span>
+                    <span className="text-purple-400 mr-2">function</span>
+                    <span className="text-blue-400">deploy</span>
+                    <span className="text-zinc-400">()</span>
+                    <span className="text-zinc-400 ml-2">{`{`}</span>
+                  </div>
+                  <div className="pl-4 flex">
+                    <span className="text-purple-400 mr-2">await</span>
+                    <span className="text-blue-400">launchNextBigThing</span>
+                    <span className="text-zinc-400">()</span>
+                  </div>
+                   <div className="text-zinc-400">{`}`}</div>
+                </div>
+             </div>
           </div>
         </div>
       </div>

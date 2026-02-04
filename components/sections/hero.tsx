@@ -36,7 +36,7 @@ export function HeroSection() {
   return (
     <section id="hero" className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden bg-background">
       {/* Grid Pattern Background */}
-      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#1a1a1a_1px,transparent_1px),linear-gradient(to_bottom,#1a1a1a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none opacity-20" />
+      <div className="absolute inset-0 z-0 bg-[linear-gradient(to_right,#27272a_1px,transparent_1px),linear-gradient(to_bottom,#27272a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none opacity-40" />
 
       <div className="container relative z-10 px-6 mx-auto text-center">
         <motion.div
@@ -61,15 +61,7 @@ export function HeroSection() {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="max-w-4xl mx-auto text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white mb-6 leading-[1.1] flex flex-col items-center justify-center"
         >
-          <div className="flex items-center gap-4 mb-2">
-            <div className="hidden md:block relative w-12 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24">
-              <Image 
-                src="/logos/android-chrome-512x512.png" 
-                alt="Datashrimp Logo" 
-                fill
-                className="object-contain"
-              />
-            </div>
+          <div className="flex items-center justify-center gap-4 mb-2">
             <span>We Turn Ideas Into</span>
           </div>
           <span className="text-primary bg-clip-text">Real, Usable Tech</span>
