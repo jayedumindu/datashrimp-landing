@@ -40,14 +40,6 @@ export function ServicesSection() {
           
           <div className="md:w-1/2 relative">
              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-purple-500/20 blur-[80px] rounded-full pointer-events-none" />
-             <div className="relative bg-zinc-900 border border-zinc-800 rounded-3xl p-2 rotate-3 hover:rotate-0 transition-transform duration-500">
-                <div className="aspect-video bg-zinc-950 rounded-2xl overflow-hidden flex items-center justify-center">
-                   <div className="text-zinc-700 font-mono text-sm">
-                      &lt;Code /&gt;
-                   </div>
-                   {/* Placeholder for a code snippet or tech collage image */}
-                </div>
-             </div>
           </div>
         </div>
       </div>

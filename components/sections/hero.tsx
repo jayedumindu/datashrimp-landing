@@ -62,7 +62,7 @@ export function HeroSection() {
           className="max-w-4xl mx-auto text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight text-white mb-6 leading-[1.1] flex flex-col items-center justify-center"
         >
           <div className="flex items-center gap-4 mb-2">
-            <div className="relative w-12 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24">
+            <div className="hidden md:block relative w-12 h-12 md:w-20 md:h-20 lg:w-24 lg:h-24">
               <Image 
                 src="/logos/android-chrome-512x512.png" 
                 alt="Datashrimp Logo" 
